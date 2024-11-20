@@ -3,7 +3,7 @@ import os
 
 from fastapi import APIRouter, HTTPException
 
-from app.api.routers.models import ChatConfig
+from app.api.routers.models import ChatConfig, Message, MessageRole
 
 config_router = r = APIRouter()
 
@@ -54,4 +54,13 @@ async def chat_config() -> ChatConfig:
     conversation_starters = os.getenv("CONVERSATION_STARTERS")
     if conversation_starters and conversation_starters.strip():
         starter_questions = conversation_starters.strip().split("\n")
-    return ChatConfig(starter_questions=starter_questions)
+    
+    initial_message = Message(
+        role=MessageRole.ASSISTANT,
+        content="Hello! I am an AI assistant powered by Zemelah. I'm here to help answer your questions. How can I assist you today?"
+    )
+    
+    return ChatConfig(
+        starter_questions=starter_questions,
+        initial_message=initial_message
+    )
