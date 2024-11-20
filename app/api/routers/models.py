@@ -326,6 +326,11 @@ class ChatConfig(BaseModel):
         description="List of starter questions",
         serialization_alias="starterQuestions",
     )
+    initial_message: Optional[str] = Field(
+        default=None,
+        description="Initial message to display when chat loads",
+        serialization_alias="initialMessage",
+    )
 
     class Config:
         json_schema_extra = {
@@ -333,6 +338,7 @@ class ChatConfig(BaseModel):
                 "starterQuestions": [
                     "What standards for letters exist?",
                     "What are the requirements for a letter to be considered a letter?",
-                ]
+                ],
+                "initialMessage": "Hello! I am an AI assistant powered by Zemelah. How can I help you today?"
             }
         }

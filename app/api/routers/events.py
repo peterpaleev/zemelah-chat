@@ -20,9 +20,9 @@ class CallbackEvent(BaseModel):
         if self.payload:
             nodes = self.payload.get("nodes")
             if nodes:
-                msg = f"Retrieved {len(nodes)} sources to use as context for the query"
+                msg = f"Нашел {len(nodes)} источников"
             else:
-                msg = f"Retrieving context for query: '{self.payload.get('query_str')}'"
+                msg = f"Ищу в Земелахе: '{self.payload.get('query_str')}'"
             return {
                 "type": "events",
                 "data": {"title": msg},

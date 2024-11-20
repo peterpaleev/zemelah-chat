@@ -1,0 +1,16 @@
+
+build command:
+```
+docker build --platform linux/amd64 -t gcr.io/radius-vpn-439303/zemelah-ai:v3 .             
+```
+
+push command:
+```
+docker push gcr.io/radius-vpn-439303/zemelah-ai:v6
+```
+
+poetry:
+```
+curl -sSL https://install.python-poetry.org | python3 -
+export PATH="$HOME/.local/bin:$PATH"
+```
