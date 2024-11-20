@@ -1,0 +1,11 @@
+file: {}
+# web:
+#   driver_arguments:
+#     - --no-sandbox
+#     - --disable-dev-shm-usage
+#   urls:
+#     - base_url: https://dezin.ru/
+#       prefix: https://dezin.ru/
+#       depth: 1
+zemelah:
+  database_directory: zemelah
