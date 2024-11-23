@@ -55,9 +55,14 @@ async def chat_config() -> ChatConfig:
     if conversation_starters and conversation_starters.strip():
         starter_questions = conversation_starters.strip().split("\n")
     
+    initial_message_content = os.getenv(
+        "INITIAL_MESSAGE",
+        "Hello! I am an AI assistant powered by Zemelah. I'm here to help answer your questions. How can I assist you today?"
+    )
+    
     initial_message = Message(
         role=MessageRole.ASSISTANT,
-        content="Hello! I am an AI assistant powered by Zemelah. I'm here to help answer your questions. How can I assist you today?"
+        content=initial_message_content
     )
     
     return ChatConfig(
