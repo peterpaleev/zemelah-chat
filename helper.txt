@@ -9,8 +9,39 @@ push command:
 docker push gcr.io/radius-vpn-439303/zemelah-ai:v6
 ```
 
+gcloud run deploy zemelah-ai \
+  --image gcr.io/radius-vpn-439303/zemelah-ai:v9 \
+  --platform managed \
+  --region europe-west1 \
+  --project radius-vpn-439303 \
+  --allow-unauthenticated
+
+
 poetry:
 ```
 curl -sSL https://install.python-poetry.org | python3 -
 export PATH="$HOME/.local/bin:$PATH"
 ```
+
+poetry install
+poetry shell
+
+python main.py
+
+
+# get chat config
+
+curl 'http://0.0.0.0:8000/api/chat/config' \ 
+  -H 'accept: */*' \
+  -H 'accept-language: en-GB,en-US;q=0.9,en;q=0.8' \
+  -H 'dnt: 1' \
+  -H 'origin: https://peterpaleev.github.io' \
+  -H 'priority: u=1, i' \
+  -H 'referer: https://peterpaleev.github.io/' \
+  -H 'sec-ch-ua: "Chromium";v="131", "Not_A Brand";v="24"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "macOS"' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-site: cross-site' \
+  -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'

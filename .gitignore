@@ -3,3 +3,4 @@ storage
 .env
 output
 README.md
+.DS_Store

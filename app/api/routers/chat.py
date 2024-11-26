@@ -27,14 +27,6 @@ async def chat(
     background_tasks: BackgroundTasks,
 ):
     try:
-        # Add initial message if this is the first message in the conversation
-        if len(data.messages) == 1:  # Only user's first message
-            initial_message = Message(
-                role=MessageRole.ASSISTANT,
-                content="Здравствуйте! Я умный помощник базы еврейских эго-текстов Земелах. Задайте мне вопрос, и я найду в текстах нужную вам информацию."
-            )
-            data.messages.insert(0, initial_message)
-
         last_message_content = data.get_last_message_content()
         messages = data.get_history_messages()
 

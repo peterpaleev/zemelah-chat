@@ -57,7 +57,7 @@ async def chat_config() -> ChatConfig:
     
     initial_message_content = os.getenv(
         "INITIAL_MESSAGE",
-        "Hello! I am an AI assistant powered by Zemelah. I'm here to help answer your questions. How can I assist you today?"
+        "Hello! I am an AI assistant powered by Zemelah. How can I help you today?"
     )
     
     initial_message = Message(
